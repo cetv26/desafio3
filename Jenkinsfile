@@ -72,13 +72,9 @@ pipeline {
                         sh 'newman --version'
 
                     }
+                    sh 'newman run /var/jenkins_home/desafio3.postman_collection.json '
                 }
-                steps {
-                    
-                        
-                        sh 'newman run /var/jenkins_home/desafio3.postman_collection.json '
-                    
-                }
+               
         }
 
 
