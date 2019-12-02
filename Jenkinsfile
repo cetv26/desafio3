@@ -23,7 +23,7 @@ pipeline {
         stage('Building image') {
             steps{
                 script {
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                    dockerImage = docker.build registry
                 }
             }
         }
@@ -39,7 +39,7 @@ pipeline {
         }
          stage('Remove Unused docker image') {
               steps{
-                sh "docker rmi $registry:$BUILD_NUMBER"
+                sh "docker rmi $registry"
               }
             }
 
@@ -52,7 +52,7 @@ pipeline {
                         withCredentials([sshUserPrivateKey(credentialsId: 'aws', keyFileVariable: 'aws', passphraseVariable: '', usernameVariable: '')]) {
 
 
-                            sh """ssh -i ${aws}  ec2-18-234-103-69.compute-1.amazonaws.com "sudo   docker run -t -p 8050:8080 $registry" """
+                            sh """ssh   ec2-18-234-103-69.compute-1.amazonaws.com "sudo   docker run -t -p 8050:8080 $registry" """
                         }
                     }
 
