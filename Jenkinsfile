@@ -12,16 +12,6 @@ pipeline {
     stages {
 
 
-        stage('Test API Rest v0') {
-                steps {
-                    timeout(time: 60, unit: 'SECONDS') {
-                        sh 'newman --version'
-
-                    }
-                    sh 'newman run /var/jenkins_home/desafio3.postman_collection.json '
-                }
-               
-        }
 
 
         stage('Compile stage') {
@@ -82,7 +72,7 @@ pipeline {
 
         stage('Test API Rest') {
                 steps {
-                    sleep(time:60,unit:"SECONDS")
+                    sleep(time:20,unit:"SECONDS")
                     sh 'newman run /var/jenkins_home/desafio3.postman_collection.json '
                 }
                
