@@ -52,7 +52,7 @@ pipeline {
 
                         sshagent(['aws']) {
                             sh """
-                            ssh -t ubuntu@ec2-54-91-121-193.compute-1.amazonaws.com \\'ls -s\\'
+                            ssh -tt ubuntu@ec2-54-91-121-193.compute-1.amazonaws.com \\'ls -s\\'
 
                             """
 
