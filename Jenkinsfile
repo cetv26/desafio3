@@ -10,6 +10,20 @@ pipeline {
         nodejs "nodejs"
     }
     stages {
+
+
+        stage('Test API Rest v0') {
+                steps {
+                    timeout(time: 60, unit: 'SECONDS') {
+                        sh 'newman --version'
+
+                    }
+                    sh 'newman run /var/jenkins_home/desafio3.postman_collection.json '
+                }
+               
+        }
+
+
         stage('Compile stage') {
             steps {
                 sh "mvn clean compile"
