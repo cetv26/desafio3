@@ -51,7 +51,11 @@ pipeline {
                     steps{
 
                         sshagent(['aws']) {
-                            sh 'ssh -tt ubuntu@ec2-54-91-121-193.compute-1.amazonaws.com \\"sudo docker run -t -p 8080:8080 $registry\\"'
+                        sh """
+                        ssh -tt ubuntu@ec2-54-91-121-193.compute-1.amazonaws.com
+                        sudo docker run -t -p 8080:8080 $registry
+                        """
+
                         }
                     }
 
