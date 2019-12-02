@@ -50,10 +50,10 @@ pipeline {
                 stage('Deploy ec2') {
                     steps{
 
-                        sshagent(['aws']) {
+
                             sh 'ping -c 4 ec2-18-234-103-69.compute-1.amazonaws.com'
-                            sh 'ssh -tt ec2-18-234-103-69.compute-1.amazonaws.com "sudo docker run -t -p 8050:8080 $registry"'
-                        }
+                            sh 'ssh -i intercorp.pem  ubuntu@ec2-18-234-103-69.compute-1.amazonaws.com "sudo docker run -t -p 8050:8080 $registry"'
+
                     }
 
                 }
