@@ -52,7 +52,7 @@ pipeline {
                         withCredentials([sshUserPrivateKey(credentialsId: 'aws', keyFileVariable: 'aws', passphraseVariable: '', usernameVariable: '')]) {
 
 
-                            sh "ssh -i ${aws} -T ubuntu@ec2-18-234-103-69.compute-1.amazonaws.com \"docker run -it -p 8050:8080 $registry:$BUILD_NUMBER\""
+                            sh "ssh -i ${aws}  ubuntu@ec2-18-234-103-69.compute-1.amazonaws.com \"sudo -s | docker run -it -p 8050:8080 $registry\""
                         }
                     }
 
