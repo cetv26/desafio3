@@ -7,6 +7,7 @@ pipeline {
     agent any
     tools {
         maven 'mvn'
+        nodejs "nodejs"
     }
     stages {
         stage('Compile stage') {
@@ -62,5 +63,15 @@ pipeline {
 
             }
         }
+
+
+
+        stage('Test API Rest') {
+                steps {
+                    sh 'newman run /var/jenkins_home/our.postman_collection.json'
+                }
+        }
+
+
     }
 }
