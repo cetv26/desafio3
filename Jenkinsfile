@@ -54,21 +54,11 @@ pipeline {
                             sh """
                             chmod 400 /var/jenkins_home/intercorp.pem
                             ls /var/jenkins_home/
-                            ssh -i /var/jenkins_home/intercorp.pem -o StrictHostKeyChecking=no ubuntu@ec2-18-234-103-69.compute-1.amazonaws.com bash -c \\"sudo   docker stop \$(docker ps -a -q  --filter ancestor=$registry)\\"
+                            ssh -i /var/jenkins_home/intercorp.pem -o StrictHostKeyChecking=no ubuntu@ec2-18-234-103-69.compute-1.amazonaws.com bash -c \\"sudo docker ps -q --filter \\"name=ctisz/desafio3\\" | grep -q . && docker stop ctisz/desafio3 && docker rm -fv ctisz/desafio3\\"
 
 
 
                             """
-
-
-                    }
-
-                }
-
-                                stage('Deploy ec3') {
-                                    steps{
-
-
                                             sh """
                                             chmod 400 /var/jenkins_home/intercorp.pem
                                             ls /var/jenkins_home/
@@ -77,10 +67,11 @@ pipeline {
 
                                             """
 
+                    }
 
-                                    }
+                }
 
-                                }
+
 
 
     }
