@@ -54,7 +54,7 @@ pipeline {
                             sh """
                             chmod 400 /var/jenkins_home/intercorp.pem
                             ls /var/jenkins_home/
-                            ssh -i /var/jenkins_home/intercorp.pem -o StrictHostKeyChecking=no ubuntu@18.234.103.69 \\'docker run -t -p 8050:8080 $registry\\'
+                            ssh -i /var/jenkins_home/intercorp.pem -o StrictHostKeyChecking=no ubuntu@18.234.103.69 \\'ls -s\\'
 
                             """
 
