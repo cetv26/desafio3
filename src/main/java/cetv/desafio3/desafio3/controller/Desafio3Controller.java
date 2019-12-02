@@ -17,13 +17,13 @@ public class Desafio3Controller {
         return "hello 12347999 XD";
     }
 
-    @RequestMapping(value="/test1", method = RequestMethod.GET)
+    @RequestMapping(value="/test1", method = {RequestMethod.GET,RequestMethod.POST})
     public TestRespuesta Test1()  {
 
         return testService.test1();
     }
 
-    @RequestMapping(value="/test2", method = RequestMethod.GET)
+    @RequestMapping(value="/test2", method = {RequestMethod.GET,RequestMethod.POST})
     public TestRespuesta Test2()  {
 
         return testService.test2();
