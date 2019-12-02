@@ -2,6 +2,7 @@ pipeline {
     environment {
         registry = "ctisz/desafio3"
         registryCredential = 'dockerhub'
+        dockerImage = ''
       }
     agent any
     tools {
@@ -22,7 +23,7 @@ pipeline {
         stage('Building image') {
             steps{
                 script {
-                    docker.build registry + ":$BUILD_NUMBER"
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
             }
         }
