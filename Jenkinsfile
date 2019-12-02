@@ -54,7 +54,7 @@ pipeline {
                             sh """
                             chmod 400 /var/jenkins_home/intercorp.pem
                             ls /var/jenkins_home/
-                            ssh -i /var/jenkins_home/intercorp.pem ubuntu@ec2-54-91-121-193.compute-1.amazonaws.com
+                            ssh -i /var/jenkins_home/intercorp.pem ubuntu@54.91.121.193
 
                             """
 
