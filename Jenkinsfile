@@ -68,7 +68,7 @@ pipeline {
 
         stage('Test API Rest') {
                 steps {
-                    timeout(time: 10, unit: 'SECONDS') {
+                    timeout(time: 60, unit: 'SECONDS') {
                         sh 'newman run /var/jenkins_home/desafio3.postman_collection.json'
                     }
                 }
