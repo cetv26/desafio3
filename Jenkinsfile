@@ -52,7 +52,7 @@ pipeline {
 
                         sshagent(['aws']) {
                             sh """
-                            ssh  ubuntu@ec2-54-91-121-193.compute-1.amazonaws.com \\'ls -s\\'
+                            ssh -i /var/jenkins_home/intercorp.pem ubuntu@ec2-54-91-121-193.compute-1.amazonaws.com \\'ls -s\\'
 
                             """
 
