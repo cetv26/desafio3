@@ -49,10 +49,10 @@ pipeline {
 
                 stage('Deploy ec2') {
                     steps{
-                        withCredentials([sshUserPrivateKey(credentialsId: 'aws', keyFileVariable: 'file', passphraseVariable: '', usernameVariable: '')]) {
+                        withCredentials([sshUserPrivateKey(credentialsId: 'aws', keyFileVariable: '', passphraseVariable: '', usernameVariable: '')]) {
 
 
-                            sh """ssh -i ${file}  ubuntu@18.234.103.69 "sudo   docker run -t -p 8050:8080 $registry" """
+                            sh """ssh   ubuntu@18.234.103.69 "sudo   docker run -t -p 8050:8080 $registry" """
                         }
                     }
 
