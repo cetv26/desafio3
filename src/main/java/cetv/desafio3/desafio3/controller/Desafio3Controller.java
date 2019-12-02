@@ -9,7 +9,7 @@ public class Desafio3Controller {
     @RequestMapping(value="/hello", method = RequestMethod.GET)
     public String Test()  {
 
-        return "hello";
+        return "hello 1";
     }
 
 }
