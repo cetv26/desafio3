@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        registry = "docker_hub_account/repository_name"
+        registry = "ctisz/desafio3"
         registryCredential = 'dockerhub'
       }
     agent any
@@ -26,15 +26,7 @@ pipeline {
                 }
             }
         }
-        stage('Deploy') {
-            steps{
-                withCredentials([sshUserPrivateKey(credentialsId: 'aws', keyFileVariable: 'aws', passphraseVariable: '', usernameVariable: '')]) {
 
-                    sh "ssh -i ${aws} -T ubuntu@ec2-54-152-115-203.compute-1.amazonaws.com"
-                }       // some block
-            }
-
-        }
 
     }
 
