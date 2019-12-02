@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import cetv.desafio3.desafio3.services.TestService;
+import cetv.desafio3.desafio3.model.TestRespuesta;
 @RestController
 public class Desafio3Controller {
 
@@ -17,13 +18,13 @@ public class Desafio3Controller {
     }
 
     @RequestMapping(value="/test1", method = RequestMethod.GET)
-    public String Test1()  {
+    public TestRespuesta Test1()  {
 
         return testService.test1();
     }
 
     @RequestMapping(value="/test2", method = RequestMethod.GET)
-    public String Test2()  {
+    public TestRespuesta Test2()  {
 
         return testService.test2();
     }

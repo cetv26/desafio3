@@ -15,14 +15,23 @@ class Desafio3ApplicationTests {
 	TestService testService;
 
 	@Test
-	void test1Test() {
-		assertEquals("test1",testService.test1());
+	void test1Testa() {
+		assertEquals("test1",testService.test1().getMensaje());
 	}
 
+	@Test
+	void test1Testb() {
+		assertEquals("1",testService.test1().getCodigo());
+	}
 
 	@Test
-	void test2Test() {
-		assertEquals("test2",testService.test2());
+	void test2Testa() {
+		assertEquals("test2",testService.test2().getMensaje());
+	}
+
+	@Test
+	void test2Testb() {
+		assertEquals("2",testService.test2().getCodigo());
 	}
 
 }
