@@ -51,6 +51,7 @@ pipeline {
                     steps{
 
                         sshagent(['aws']) {
+                            sh 'ping 172.31.56.30'
                             sh 'ssh -tt 172.31.56.30 "sudo docker run -t -p 8050:8080 $registry"'
                         }
                     }
