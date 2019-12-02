@@ -68,7 +68,7 @@ pipeline {
 
         stage('Test API Rest') {
                 steps {
-                    sh 'newman run /var/jenkins_home/our.postman_collection.json'
+                    sh 'newman run /var/jenkins_home/desafio3.postman_collection.json'
                 }
         }
 
